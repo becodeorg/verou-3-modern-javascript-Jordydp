@@ -86,13 +86,6 @@ const getWeekDaysInOrder = (days, firstApi) => {
 
 }
 
-//create a card 
-
-
-
-
-
-
 export const getSunriseTime = (sunriseOffset) => {
     
     // Create a new JavaScript Date object based on the timestamp
@@ -111,7 +104,6 @@ export const getSunriseTime = (sunriseOffset) => {
 }
 
 export const getSunsetTime = (sunsetOffset) =>{
-
     // Create a new JavaScript Date object based on the timestamp
     // multiplied by 1000 so that the argument is in milliseconds, not seconds.
     let date = new Date(sunsetOffset * 1000);
@@ -121,8 +113,7 @@ export const getSunsetTime = (sunsetOffset) =>{
     let minutes = "0" + date.getMinutes();
     // Seconds part from the timestamp
     //let seconds = "0" + date.getSeconds();
-
-    // Will display time in 10:30:23 format
+    // Will display time in 10:30 format
     let formattedTime = hours + ':' + minutes.substr(-2)
     return formattedTime;
 }
