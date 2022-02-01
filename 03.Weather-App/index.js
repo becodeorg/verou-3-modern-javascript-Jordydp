@@ -2,10 +2,6 @@
 import Data from "./config.js";
 import { cardCreater } from "./cardcreate.js";
 
-//get inputfield
-const searchField = document.getElementById("searchfield");
-const submit = document.querySelector("button");
-
 //display the data fetched
 const displayfetchData = (event) => {
     //prevent default
@@ -99,7 +95,7 @@ export const getSunriseTime = (sunriseOffset) => {
     //let seconds = "0" + date.getSeconds();
 
     // Will display time in 10:30:23 format
-    let formattedTime = hours + ':' + minutes.substr(-2)
+    let formattedTime = hours + ':' + minutes.substr(-2);
     return formattedTime;
 }
 
@@ -119,10 +115,10 @@ export const getSunsetTime = (sunsetOffset) =>{
 }
 
 //addEventListener on click use event
-submit.addEventListener('click', displayfetchData);
+document.querySelector("button").addEventListener('click', displayfetchData);
 
 //event at Enter
-searchField.addEventListener("keyup", function (KeyboardEvent) {
+document.getElementById("searchfield").addEventListener("keyup", function (KeyboardEvent) {
     if (KeyboardEvent === 13) {
         displayfetchData();
         };
