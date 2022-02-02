@@ -1,11 +1,14 @@
 {
   "name": "04.modern-javascript",
   "version": "1.0.0",
-  "description": "",
+  "description": "💡 Refactoring can break *a lot* of your code, if you're trying to modify big chunks. The secret is to work with small changes, and commit every step. That will help you to focus on one change, and got back to your last commit if something goes wrong. Made a real mess? Ask your coach in time, so (s)he can help you out. Refactoring is also never really finished, it's okay to call it a day after some intense changes instead of dedicating the full week to getting it perfect.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
   },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/becodeorg/verou-3-modern-javascript-Jordydp.git"
@@ -16,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/becodeorg/verou-3-modern-javascript-Jordydp/issues"
   },
-  "homepage": "https://github.com/becodeorg/verou-3-modern-javascript-Jordydp#readme"
+  "homepage": "https://github.com/becodeorg/verou-3-modern-javascript-Jordydp#readme",
+  "devDependencies": {
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2"
+  }
 }

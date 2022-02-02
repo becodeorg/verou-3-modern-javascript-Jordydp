@@ -2,7 +2,7 @@
 import Data from "./config.js";
 import { cardCreater } from "./modules/cardcreate.js";
 
-
+console.log("hello Webpack")
 const fetchImage = () => {
     fetch("https://api.unsplash.com/search/photos?query="
         + getSearchfieldInput() + 
