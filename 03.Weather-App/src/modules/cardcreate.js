@@ -1,10 +1,9 @@
-import { getSearchfieldInput } from "./index.js";
-import { getSunriseTime } from "./index.js";
-import { getSunsetTime } from "./index.js";
+import { getSearchfieldInput } from "../index.js";
+import { getSunriseTime } from "../index.js";
+import { getSunsetTime } from "../index.js";
 
 export const cardCreater = (day, weekday, firstApi) => {
-    console.log(day);
-    console.log(firstApi);
+    
     //get section
     const section = document.querySelector("section");
 
@@ -66,15 +65,11 @@ export const cardCreater = (day, weekday, firstApi) => {
     textContainer.appendChild(textContainerRight);
     
     //create sunrise  
-    console.log({day});
     let sunrise = day.sunrise;
-    console.log({sunrise});
     let sunset = day.sunset;
     let timezone = firstApi.timezone;
-    console.log({timezone});
-    let sunriseOffset = (sunrise + timezone) - 3600 ;
-    console.log({sunriseOffset});
-    let sunsetOffset = (sunset + timezone)-3600 ;
+    let sunriseOffset = (sunrise + timezone) - 3600;
+    let sunsetOffset = (sunset + timezone)- 3600;
 
 
     const sunriseDisplay = document.createElement("span");

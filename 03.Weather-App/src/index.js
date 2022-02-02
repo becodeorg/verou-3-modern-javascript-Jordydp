@@ -1,16 +1,8 @@
 //import from config.js
 import Data from "./config.js";
-import { cardCreater } from "./cardcreate.js";
+import { cardCreater } from "./modules/cardcreate.js";
 
-//display the data fetched
-const displayfetchData = (event) => {
-    //prevent default
-    event.preventDefault();
-    const cityInput = getSearchfieldInput();
-    fetchImage(cityInput);
-    fetchData(cityInput);
-    
-}
+
 const fetchImage = () => {
     fetch("https://api.unsplash.com/search/photos?query="
         + getSearchfieldInput() + 
@@ -65,6 +57,15 @@ const fetchWeatherdata = (firstApi) => {
         getWeekDaysInOrder(days, firstApi); 
     });
 }
+//display the data fetched
+const displayfetchData = (event) => {
+    //prevent default
+    event.preventDefault();
+    const cityInput = getSearchfieldInput();
+    fetchImage(cityInput);
+    fetchData(cityInput);
+    
+}
 
 
 const getWeekDaysInOrder = (days, firstApi) => {
@@ -98,6 +99,7 @@ export const getSunriseTime = (sunriseOffset) => {
     let formattedTime = hours + ':' + minutes.substr(-2);
     return formattedTime;
 }
+
 
 export const getSunsetTime = (sunsetOffset) =>{
     // Create a new JavaScript Date object based on the timestamp

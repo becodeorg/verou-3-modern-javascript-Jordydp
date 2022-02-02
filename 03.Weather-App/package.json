@@ -1,0 +1,20 @@
+{
+  "name": "04.modern-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/becodeorg/verou-3-modern-javascript-Jordydp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/becodeorg/verou-3-modern-javascript-Jordydp/issues"
+  },
+  "homepage": "https://github.com/becodeorg/verou-3-modern-javascript-Jordydp#readme"
+}
