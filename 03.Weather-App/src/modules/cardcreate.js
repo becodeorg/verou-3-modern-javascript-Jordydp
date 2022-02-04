@@ -2,6 +2,7 @@ import { getSearchfieldInput } from "../index.js";
 import { getSunriseTime } from "../index.js";
 import { getSunsetTime } from "../index.js";
 
+
 export const cardCreater = (day, weekday, firstApi) => {
     
     //get section

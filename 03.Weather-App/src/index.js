@@ -1,29 +1,30 @@
 //import from config.js
 import Data from "./config.js";
 import { cardCreater } from "./modules/cardcreate.js";
+import { DateTime } from "luxon";
 
-console.log("hello Webpack")
+
 const fetchImage = () => {
     fetch("https://api.unsplash.com/search/photos?query="
         + getSearchfieldInput() + 
         "&client_id=" + Data[1].UnsplashData)
         .then(response => response.json())
         .then(CreateImgOfCity);
-}
+};
 
 export const getSearchfieldInput = () => {
     //get value of inputfield
     const searchField = document.getElementById("searchfield");
     const searchFieldInput = searchField.value;
     return searchFieldInput;
-}
+};
 
 const CreateImgOfCity = (image) =>{
     //select body for background change
     const body = document.querySelector("body");
     let background = image.results[1].urls.raw;
     body.style.backgroundImage = "url(" + background + ")";
-}
+};
 
 const fetchData = (cityInput) => {
     //fetch api + value of input field + metric + api key
@@ -40,7 +41,7 @@ const fetchData = (cityInput) => {
         return firstApi;
     });
     
-}
+};
 
 const fetchWeatherdata = (firstApi) => {
     
@@ -56,7 +57,7 @@ const fetchWeatherdata = (firstApi) => {
         const days = weatherInfo.daily;
         getWeekDaysInOrder(days, firstApi); 
     });
-}
+};
 //display the data fetched
 const displayfetchData = (event) => {
     //prevent default
@@ -65,23 +66,25 @@ const displayfetchData = (event) => {
     fetchImage(cityInput);
     fetchData(cityInput);
     
-}
+};
 
 
 const getWeekDaysInOrder = (days, firstApi) => {
     //array of weekdays
     const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     //d = date
-    let d = new Date();
+    let d = DateTime.now();
+    console.log(d);
     // n = date in number 0->6
-    let n = d.getDay();
+    let n = d.weekday;
+    console.log(n);
     for(let i = 0; i < 5 ; i++){
         let x = (n+i) % weekdays.length;
         let weekday = weekdays[x];
         cardCreater(days[i],weekday, firstApi);
     }
 
-}
+};
 
 export const getSunriseTime = (sunriseOffset) => {
     
@@ -96,9 +99,9 @@ export const getSunriseTime = (sunriseOffset) => {
     //let seconds = "0" + date.getSeconds();
 
     // Will display time in 10:30:23 format
-    let formattedTime = hours + ':' + minutes.substr(-2);
+    let formattedTime = hours + ":" + minutes.substr(-2);
     return formattedTime;
-}
+};
 
 
 export const getSunsetTime = (sunsetOffset) =>{
@@ -112,16 +115,15 @@ export const getSunsetTime = (sunsetOffset) =>{
     // Seconds part from the timestamp
     //let seconds = "0" + date.getSeconds();
     // Will display time in 10:30 format
-    let formattedTime = hours + ':' + minutes.substr(-2)
+    let formattedTime = hours + ":" + minutes.substr(-2);
     return formattedTime;
-}
-
+};
 //addEventListener on click use event
-document.querySelector("button").addEventListener('click', displayfetchData);
+document.querySelector("button").addEventListener("click", displayfetchData);
 
 //event at Enter
 document.getElementById("searchfield").addEventListener("keyup", function (KeyboardEvent) {
     if (KeyboardEvent === 13) {
         displayfetchData();
-        };
-    })
+        }
+    });
