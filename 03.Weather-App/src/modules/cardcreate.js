@@ -14,7 +14,7 @@ export const cardCreater = (day, weekday, firstApi) => {
 
     //create cardTitle
     const cardTitle = document.createElement("h2");
-    cardTitle.classList.add('cardTitle');
+    cardTitle.classList.add("cardTitle");
     cardTitle.innerText = "The weather in" + " " + getSearchfieldInput();
     newCard.appendChild(cardTitle);
 
@@ -80,4 +80,4 @@ export const cardCreater = (day, weekday, firstApi) => {
     const sunsetDisplay = document.createElement("span");
     sunsetDisplay.innerText = "The sun will set @" + " " + getSunsetTime(sunsetOffset);
     textContainerRight.appendChild(sunsetDisplay);
-}
+};
